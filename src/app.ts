@@ -9,7 +9,6 @@ import globalErrorHandler from "./middlewares/globalErrorHandler.js";
 import notFoundHandler from "./middlewares/notFound.js";
 import helmet from "helmet";
 
-import { AuthRoutes } from "./modules/auth/auth.route.js";
 import formatUptime from "./utils/formatUptime.js";
 
 export async function createApp(): Promise<Application> {
@@ -20,11 +19,6 @@ export async function createApp(): Promise<Application> {
 
   app.use(express.json({ limit: "20mb" }));
   app.use(express.urlencoded({ extended: true, limit: "20mb" }));
-
-  app.use((req, _res, next) => {
-    req.id = `${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
-    next();
-  });
 
   app.get("/", (_req: Request, res: Response) => {
     res.status(200).json({
@@ -42,8 +36,6 @@ export async function createApp(): Promise<Application> {
       service: config.serviceName,
     });
   });
-
-  app.use("/api/v1", AuthRoutes);
 
   app.use(notFoundHandler);
 
