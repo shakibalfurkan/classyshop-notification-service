@@ -27,7 +27,11 @@ export const EventBus = {
     groupId: string,
     handler: (data: any) => Promise<void>,
   ) => {
-    const consumer = kafka.consumer({ groupId });
+    const consumer = kafka.consumer({
+      groupId,
+      sessionTimeout: 30000,
+      heartbeatInterval: 3000,
+    });
 
     await consumer.connect();
     await consumer.subscribe({ topic, fromBeginning: false });

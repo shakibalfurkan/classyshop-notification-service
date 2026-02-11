@@ -15,7 +15,9 @@ if (!broker || !username || !password) {
 export const kafka = new Kafka({
   clientId: config.serviceName!,
   brokers: [broker],
-  ssl: true,
+  ssl: {
+    rejectUnauthorized: false,
+  },
   sasl: {
     mechanism: "scram-sha-256",
     username,
