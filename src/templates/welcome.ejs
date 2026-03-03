@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to ClassyShop</title>
+    <style>
+        /* Base styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f4f7fa;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .email-container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Hero Header with Image */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 48px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        .hero-title {
+            color: #ffffff;
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0 0 12px 0;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 16px;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        /* Content */
+        .content {
+            padding: 40px;
+        }
+
+        .greeting {
+            font-size: 22px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin: 0 0 24px 0;
+        }
+
+        .text {
+            font-size: 15px;
+            color: #4a5568;
+            line-height: 1.7;
+            margin: 16px 0;
+        }
+
+        /* Feature Cards */
+        .features {
+            margin: 32px 0;
+        }
+
+        .feature-card {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 16px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .feature-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin: 0 0 8px 0;
+        }
+
+        .feature-desc {
+            font-size: 14px;
+            color: #64748b;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* CTA Button */
+        .cta-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: #f9fafb;
+            padding: 32px 40px;
+            text-align: center;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .footer-text {
+            font-size: 13px;
+            color: #64748b;
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            margin: 16px 0;
+        }
+
+        .footer-link {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 13px;
+            margin: 0 8px;
+        }
+
+        @media only screen and (max-width: 600px) {
+
+            .content,
+            .footer {
+                padding: 24px !important;
+            }
+
+            .hero-title {
+                font-size: 26px !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <table role="presentation" width="100%" style="background-color: #f4f7fa;">
+        <tr>
+            <td style="padding: 20px 0;">
+                <table role="presentation" class="email-container" style="margin: 0 auto;">
+
+                    <!-- Hero Header -->
+                    <tr>
+                        <td class="hero">
+                            <div class="hero-icon">🎉</div>
+                            <h1 class="hero-title">Welcome to ClassyShop!</h1>
+                            <p class="hero-subtitle">Your journey to amazing shopping starts here</p>
+                        </td>
+                    </tr>
+
+                    <!-- Main Content -->
+                    <tr>
+                        <td class="content">
+                            <h2 class="greeting">Hi <%= userName %>,</h2>
+
+                            <p class="text">
+                                We're thrilled to have you join the ClassyShop family! Your account has been
+                                successfully verified and you're all set to start shopping.
+                            </p>
+
+                            <!-- Features -->
+                            <div class="features">
+                                <div class="feature-card">
+                                    <div class="feature-icon">🎁</div>
+                                    <p class="feature-title">Exclusive Offers</p>
+                                    <p class="feature-desc">
+                                        Get access to member-only deals, flash sales, and early bird discounts.
+                                    </p>
+                                </div>
+
+                                <div class="feature-card">
+                                    <div class="feature-icon">⚡</div>
+                                    <p class="feature-title">Fast Checkout</p>
+                                    <p class="feature-desc">
+                                        Save your preferences and payment methods for lightning-fast purchases.
+                                    </p>
+                                </div>
+
+                                <div class="feature-card">
+                                    <div class="feature-icon">📦</div>
+                                    <p class="feature-title">Order Tracking</p>
+                                    <p class="feature-desc">
+                                        Track your orders in real-time and get delivery updates instantly.
+                                    </p>
+                                </div>
+
+                                <div class="feature-card">
+                                    <div class="feature-icon">💝</div>
+                                    <p class="feature-title">Wishlist & Favorites</p>
+                                    <p class="feature-desc">
+                                        Save items you love and get notified when they go on sale.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- CTA -->
+                            <div class="cta-container">
+                                <a href="https://classyshop.com/shop" class="cta-button">
+                                    Start Shopping Now →
+                                </a>
+                            </div>
+
+                            <p class="text">
+                                If you have any questions, our support team is here to help 24/7.
+                            </p>
+
+                            <p class="text" style="margin-top: 32px;">
+                                Happy shopping!<br />
+                                <strong>The ClassyShop Team</strong>
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td class="footer">
+                            <p style="font-weight: 600; color: #1a1a1a; margin: 0 0 16px 0;">CLASSYSHOP</p>
+
+                            <div class="footer-links">
+                                <a href="#" class="footer-link">Shop Now</a> •
+                                <a href="#" class="footer-link">Help Center</a> •
+                                <a href="#" class="footer-link">Contact Us</a>
+                            </div>
+
+                            <p class="footer-text">
+                                📧 support@classyshop.com<br />
+                                📞 +880 1813 333 333<br />
+                                📍 Chandpur, Bangladesh
+                            </p>
+
+                            <p class="footer-text" style="font-size: 12px; color: #94a3b8; margin-top: 16px;">
+                                © <%= new Date().getFullYear() %> ClassyShop. All rights reserved.<br />
+                                    <a href="#" style="color: #667eea;">Unsubscribe</a> |
+                                    <a href="#" style="color: #667eea;">Privacy Policy</a>
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

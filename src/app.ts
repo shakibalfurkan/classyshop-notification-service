@@ -11,14 +11,14 @@ import helmet from "helmet";
 
 import formatUptime from "./utils/formatUptime.js";
 
-export async function createApp(): Promise<Application> {
+function createApp(): Application {
   const app: Application = express();
 
   // Middleware setup
   app.use(helmet());
 
-  app.use(express.json({ limit: "20mb" }));
-  app.use(express.urlencoded({ extended: true, limit: "20mb" }));
+  app.use(express.json({ limit: "10mb" }));
+  app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 
   app.get("/", (_req: Request, res: Response) => {
     res.status(200).json({
@@ -43,3 +43,5 @@ export async function createApp(): Promise<Application> {
 
   return app;
 }
+
+export default createApp;

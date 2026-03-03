@@ -1,4 +1,5 @@
 import { handleSendOtp } from "../handlers/handleSendOtp.js";
+import { handleUserWelcome } from "../handlers/handleUserWelcome.js";
 import type { TSendOtpPayload } from "../types/index.js";
 import logger from "../utils/logger.js";
 import { EventBus } from "./event-bus.js";
@@ -13,14 +14,10 @@ export const startKafkaConsumer = async () => {
     async (event: Record<string, any>) => {
       switch (event.eventType) {
         case NotificationEventTypes.AUTH_REGISTERED:
-          // Await is crucial here! We want to finish processing before taking the next message
-          //   await handleUserWelcome(event.payload);
+          await handleUserWelcome(event.payload);
           break;
+
         case NotificationEventTypes.AUTH_OTP:
-          console.log(
-            "auth-verification-otp and the reason is:",
-            event.payload.reason,
-          );
           await handleSendOtp(event.payload as TSendOtpPayload);
           break;
 
