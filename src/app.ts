@@ -27,7 +27,7 @@ function createApp(): Application {
     });
   });
 
-  app.get("/health", (_req, res) => {
+  app.get("/health", (_req: Request, res: Response) => {
     res.status(200).json({
       success: true,
       message: "Service is healthy",

@@ -9,6 +9,7 @@ export interface TErrorResponse {
   message: string;
   errorType: string;
   errors: TErrorSource[];
+  requestId: string;
   stack?: string;
   timestamp?: string;
 }

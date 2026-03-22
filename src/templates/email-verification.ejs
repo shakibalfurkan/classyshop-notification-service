@@ -1,475 +1,503 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Verify Your Email - ClassyShop</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="supported-color-schemes" content="light dark" />
 
-    <style>
-        /* CSS Reset for email clients */
-        body,
-        table,
-        td,
-        a {
-            -webkit-text-size-adjust: 100%;
-            -ms-text-size-adjust: 100%;
-        }
+  <title>Verify Your Email — ClassyShop</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
 
-        table,
-        td {
-            mso-table-lspace: 0pt;
-            mso-table-rspace: 0pt;
-        }
+    body {
+      font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background-color: #F8FAFF;
+      -webkit-font-smoothing: antialiased
+    }
 
-        img {
-            -ms-interpolation-mode: bicubic;
-            border: 0;
-            height: auto;
-            line-height: 100%;
-            outline: none;
-            text-decoration: none;
-        }
+    a {
+      text-decoration: none
+    }
 
-        /* Global Styles */
-        body {
-            margin: 0;
-            padding: 0;
-            width: 100% !important;
-            height: 100% !important;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f4f7fa;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
+    img {
+      border: 0;
+      display: block
+    }
 
-        /* Container */
-        .email-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #ffffff;
-        }
+    .wrapper {
+      width: 100%;
+      background: #F8FAFF;
+      padding: 48px 16px
+    }
 
-        /* Header */
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 40px 30px;
-            text-align: center;
-        }
+    .container {
+      max-width: 580px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid #E2EAFF;
+      box-shadow: 0 4px 24px rgba(37, 99, 235, 0.08)
+    }
 
-        .logo {
-            font-size: 32px;
-            font-weight: 700;
-            color: #ffffff;
-            margin: 0;
-            letter-spacing: -0.5px;
-            text-transform: uppercase;
-        }
+    /* ── Header ── */
+    .header {
+      background-color: #2563EB;
+      padding: 28px 40px;
+      text-align: center
+    }
 
-        .header-subtitle {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 14px;
-            margin: 8px 0 0 0;
-            font-weight: 400;
-        }
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(160deg, #1D4ED8 0%, #2563EB 100%);
+      padding: 8px 40px 36px;
+      text-align: center
+    }
 
-        /* Main Content */
-        .content {
-            padding: 48px 40px;
-            background-color: #ffffff;
-        }
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.14);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 100px;
+      margin-bottom: 16px
+    }
 
-        .greeting {
-            font-size: 24px;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin: 0 0 16px 0;
-            line-height: 1.3;
-        }
+    .hero-title {
+      font-family: 'Poppins', 'Roboto', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+      letter-spacing: -0.4px
+    }
 
-        .subheading {
-            font-size: 15px;
-            color: #4a5568;
-            margin: 0 0 32px 0;
-            line-height: 1.6;
-        }
+    /* ── Seller accent strip (only shown for seller) ── */
+    .seller-strip {
+      background: #EFF3FF;
+      border-bottom: 1px solid #DBEAFE;
+      padding: 12px 40px;
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
 
-        /* OTP Section */
-        .otp-section {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            border-radius: 12px;
-            padding: 32px;
-            text-align: center;
-            margin: 32px 0;
-            border: 2px solid #e2e8f0;
-        }
+    .seller-badge {
+      background: #2563EB;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 6px;
+      flex-shrink: 0
+    }
 
-        .otp-label {
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            color: #64748b;
-            font-weight: 600;
-            margin: 0 0 16px 0;
-        }
+    .seller-strip-text {
+      font-size: 12px;
+      color: #1E40AF;
+      line-height: 1.5
+    }
 
-        .otp-code {
-            font-size: 42px;
-            font-weight: 700;
-            color: #667eea;
-            letter-spacing: 8px;
-            font-family: 'Courier New', monospace;
-            margin: 0;
-            padding: 16px;
-            background: #ffffff;
-            border-radius: 8px;
-            display: inline-block;
-            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15);
-        }
+    /* ── Body ── */
+    .body {
+      padding: 40px 40px 32px
+    }
 
-        .otp-validity {
-            font-size: 13px;
-            color: #64748b;
-            margin: 16px 0 0 0;
-            font-weight: 500;
-        }
+    .greeting {
+      font-size: 16px;
+      color: #0F172A;
+      margin-bottom: 8px;
+      line-height: 1.6
+    }
 
-        .otp-validity strong {
-            color: #dc2626;
-            font-weight: 700;
-        }
+    .greeting strong {
+      font-weight: 700;
+      color: #0F172A
+    }
 
-        /* Instructions */
-        .instructions {
-            background-color: #fef3c7;
-            border-left: 4px solid #f59e0b;
-            padding: 20px 24px;
-            border-radius: 8px;
-            margin: 32px 0;
-        }
+    .text {
+      font-size: 14px;
+      color: #64748B;
+      line-height: 1.85;
+      margin-bottom: 32px
+    }
 
-        .instructions-title {
-            font-size: 14px;
-            font-weight: 700;
-            color: #92400e;
-            margin: 0 0 8px 0;
-            display: flex;
-            align-items: center;
-        }
+    /* ── OTP ── */
+    .otp-label {
+      font-size: 10px;
+      font-weight: 600;
+      color: #94A3B8;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 12px
+    }
 
-        .instructions-icon {
-            display: inline-block;
-            width: 18px;
-            height: 18px;
-            margin-right: 8px;
-            background-color: #f59e0b;
-            border-radius: 50%;
-            color: #ffffff;
-            font-size: 12px;
-            line-height: 18px;
-            text-align: center;
-            font-weight: 700;
-        }
+    .otp-box {
+      background: #F0F5FF;
+      border: 1.5px dashed #93C5FD;
+      border-radius: 14px;
+      padding: 28px 20px;
+      text-align: center;
+      margin-bottom: 12px
+    }
 
-        .instructions-text {
-            font-size: 13px;
-            color: #78350f;
-            margin: 0;
-            line-height: 1.6;
-        }
+    .otp-code {
+      font-family: 'Courier New', monospace;
+      font-size: 46px;
+      font-weight: 700;
+      color: #2563EB;
+      letter-spacing: 16px;
+      line-height: 1
+    }
 
-        /* Message Text */
-        .message {
-            font-size: 15px;
-            color: #4a5568;
-            line-height: 1.7;
-            margin: 16px 0;
-        }
+    .otp-expiry {
+      text-align: center;
+      font-size: 12px;
+      color: #94A3B8;
+      margin-bottom: 32px
+    }
 
-        /* Security Notice */
-        .security-notice {
-            background-color: #f0fdf4;
-            border-left: 4px solid #10b981;
-            padding: 20px 24px;
-            border-radius: 8px;
-            margin: 32px 0;
-        }
+    .otp-expiry span {
+      color: #DC2626;
+      font-weight: 600
+    }
 
-        .security-notice-title {
-            font-size: 14px;
-            font-weight: 700;
-            color: #065f46;
-            margin: 0 0 8px 0;
-        }
+    /* ── Divider ── */
+    .divider {
+      height: 1px;
+      background: #EFF3FF;
+      margin: 0 0 28px
+    }
 
-        .security-notice-text {
-            font-size: 13px;
-            color: #047857;
-            margin: 0;
-            line-height: 1.6;
-        }
+    /* ── Steps ── */
+    .section-label {
+      font-size: 10px;
+      font-weight: 600;
+      color: #94A3B8;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 16px
+    }
 
-        /* Divider */
-        .divider {
-            border: 0;
-            border-top: 1px solid #e5e7eb;
-            margin: 40px 0;
-        }
+    .step-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 14px
+    }
 
-        /* Footer */
-        .footer {
-            background-color: #f9fafb;
-            padding: 32px 40px;
-            text-align: center;
-            border-top: 1px solid #e5e7eb;
-        }
+    .step-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      background: #2563EB;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px
+    }
 
-        .footer-brand {
-            font-size: 16px;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin: 0 0 16px 0;
-        }
+    .step-text {
+      font-size: 13px;
+      color: #64748B;
+      line-height: 1.6;
+      padding-top: 4px
+    }
 
-        .footer-links {
-            margin: 16px 0;
-        }
+    /* ── Warning box ── */
+    .warning-box {
+      background: #FFFBEB;
+      border-left: 3px solid #F59E0B;
+      border-radius: 0 10px 10px 0;
+      padding: 14px 18px;
+      margin-top: 24px
+    }
 
-        .footer-link {
-            color: #667eea;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            margin: 0 12px;
-            display: inline-block;
-        }
+    .warning-box p {
+      font-size: 13px;
+      color: #92400E;
+      line-height: 1.6
+    }
 
-        .footer-link:hover {
-            color: #764ba2;
-            text-decoration: underline;
-        }
+    .warning-box strong {
+      font-weight: 600
+    }
 
-        .footer-separator {
-            color: #cbd5e0;
-            margin: 0 8px;
-        }
+    /* ── Footer ── */
+    .footer {
+      background: #F8FAFF;
+      border-top: 1px solid #E2EAFF;
+      padding: 24px 40px;
+      text-align: center
+    }
 
-        .footer-contact {
-            font-size: 13px;
-            color: #64748b;
-            margin: 16px 0 0 0;
-            line-height: 1.6;
-        }
+    .footer-links {
+      margin-bottom: 12px
+    }
 
-        .footer-contact a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 500;
-        }
+    .footer-link {
+      font-size: 12px;
+      color: #2563EB;
+      font-weight: 500;
+      margin: 0 8px
+    }
 
-        .footer-social {
-            margin: 24px 0 16px 0;
-        }
+    .footer-info {
+      font-size: 12px;
+      color: #94A3B8;
+      line-height: 1.8
+    }
 
-        .social-icon {
-            display: inline-block;
-            width: 36px;
-            height: 36px;
-            margin: 0 6px;
-            background-color: #e2e8f0;
-            border-radius: 50%;
-            line-height: 36px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 16px;
-            color: #64748b;
-            transition: all 0.3s ease;
-        }
+    .footer-info a {
+      color: #2563EB;
+      font-weight: 500
+    }
 
-        .social-icon:hover {
-            background-color: #667eea;
-            color: #ffffff;
-        }
+    .copyright {
+      margin-top: 10px;
+      font-size: 11px;
+      color: #CBD5E1
+    }
 
-        .footer-legal {
-            font-size: 12px;
-            color: #94a3b8;
-            margin: 20px 0 0 0;
-            line-height: 1.6;
-        }
+    /* ── Dark mode ── */
+    @media(prefers-color-scheme:dark) {
 
-        /* Responsive */
-        @media only screen and (max-width: 600px) {
-            .content {
-                padding: 32px 24px !important;
-            }
+      body,
+      .wrapper {
+        background-color: #0B1120 !important
+      }
 
-            .footer {
-                padding: 24px 20px !important;
-            }
+      .container {
+        background: #131E35 !important;
+        border-color: rgba(255, 255, 255, 0.08) !important;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4) !important
+      }
 
-            .greeting {
-                font-size: 20px !important;
-            }
+      .seller-strip {
+        background: #1A2744 !important;
+        border-color: rgba(255, 255, 255, 0.07) !important
+      }
 
-            .otp-code {
-                font-size: 36px !important;
-                letter-spacing: 6px !important;
-            }
+      .seller-strip-text {
+        color: #93C5FD !important
+      }
 
-            .footer-link {
-                display: block !important;
-                margin: 8px 0 !important;
-            }
+      .greeting {
+        color: #F1F5F9 !important
+      }
 
-            .footer-separator {
-                display: none;
-            }
-        }
-    </style>
+      .greeting strong {
+        color: #F1F5F9 !important
+      }
+
+      .text {
+        color: #94A3B8 !important
+      }
+
+      .otp-box {
+        background: #1A2744 !important;
+        border-color: rgba(59, 130, 246, 0.3) !important
+      }
+
+      .otp-code {
+        color: #3B82F6 !important
+      }
+
+      .otp-expiry {
+        color: #475569 !important
+      }
+
+      .divider {
+        background: rgba(255, 255, 255, 0.06) !important
+      }
+
+      .section-label {
+        color: #334155 !important
+      }
+
+      .step-text {
+        color: #64748B !important
+      }
+
+      .warning-box {
+        background: #1C1505 !important;
+        border-color: #D97706 !important
+      }
+
+      .warning-box p {
+        color: #FDE68A !important
+      }
+
+      .footer {
+        background: #0F1929 !important;
+        border-color: rgba(255, 255, 255, 0.07) !important
+      }
+
+      .footer-link {
+        color: #3B82F6 !important
+      }
+
+      .footer-info {
+        color: #475569 !important
+      }
+
+      .footer-info a {
+        color: #3B82F6 !important
+      }
+
+      .copyright {
+        color: #1E293B !important
+      }
+    }
+
+    @media(max-width:600px) {
+
+      .body,
+      .header,
+      .hero,
+      .footer,
+      .seller-strip {
+        padding-left: 24px !important;
+        padding-right: 24px !important
+      }
+
+      .otp-code {
+        font-size: 36px !important;
+        letter-spacing: 10px !important
+      }
+
+      .hero-title {
+        font-size: 22px !important
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <!-- Wrapper Table for Email Clients -->
-    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%"
-        style="background-color: #f4f7fa;">
-        <tr>
-            <td style="padding: 40px 0;">
-                <!-- Email Container -->
-                <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="email-container"
-                    style="margin: 0 auto; max-width: 600px; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);">
+  <div class="wrapper">
+    <div class="container">
 
-                    <!-- Header -->
-                    <tr>
-                        <td class="header">
-                            <h1 class="logo">ClassyShop</h1>
-                            <p class="header-subtitle">Your Premium Shopping Destination</p>
-                        </td>
-                    </tr>
+      <!-- Header — always blue, logo always white -->
+      <div class="header">
+        <img src="https://res.cloudinary.com/duz75d1fh/image/upload/v1774184955/classyshop-logo-White-no-bg_yslre0.png"
+          alt="ClassyShop" width="160" height="42"
+          style="display:block;margin:0 auto;border:0;max-width:100%;height:auto" />
+      </div>
 
-                    <!-- Main Content -->
-                    <tr>
-                        <td class="content">
-                            <!-- Greeting -->
-                            <h2 class="greeting">Hello, <%= userName %>! 👋</h2>
-                            <p class="subheading">
-                                Welcome to ClassyShop! We're excited to have you join our community of savvy shoppers.
+      <!-- Hero -->
+      <div class="hero">
+        <div class="badge">Email Verification</div>
+        <div class="hero-title">Confirm your email address</div>
+      </div>
+
+      <%# Seller-only accent strip — tells sellers they're on the right path %>
+        <% if (userType==='seller' ) { %>
+          <div class="seller-strip">
+            <span class="seller-badge">Seller</span>
+            <span class="seller-strip-text">You're applying to become a verified ClassyShop seller</span>
+          </div>
+          <% } %>
+
+            <!-- Body -->
+            <div class="body">
+
+              <p class="greeting">Hi, <strong>
+                  <%= userName %>
+                </strong> 👋</p>
+
+              <%# Intro paragraph — context-aware based on userType %>
+                <% if (userType==='seller' ) { %>
+                  <p class="text">
+                    Thank you for applying to sell on ClassyShop! Before we review your seller application,
+                    we need to verify your email address. Enter the code below to confirm your email
+                    and move forward with the onboarding process.
+                  </p>
+                  <% } else { %>
+                    <p class="text">
+                      Welcome to ClassyShop! You're one step away from accessing thousands of products
+                      from our verified sellers. Use the code below to verify your email and activate your account.
+                    </p>
+                    <% } %>
+
+                      <!-- OTP block — same for both -->
+                      <p class="otp-label">Your verification code</p>
+                      <div class="otp-box">
+                        <div class="otp-code">
+                          <%= otp %>
+                        </div>
+                      </div>
+                      <p class="otp-expiry">Expires in <span>10 minutes</span> &nbsp;·&nbsp; Do not share this code</p>
+
+                      <div class="divider"></div>
+
+                      <!-- Steps — last step is dynamic -->
+                      <p class="section-label">What's next</p>
+                      <div class="step-row">
+                        <div class="step-num">1</div>
+                        <p class="step-text">Copy the 6-digit code above</p>
+                      </div>
+                      <div class="step-row">
+                        <div class="step-num">2</div>
+                        <p class="step-text">Paste it into the verification field on the sign-up page</p>
+                      </div>
+                      <div class="step-row">
+                        <div class="step-num">3</div>
+                        <% if (userType==='seller' ) { %>
+                          <p class="step-text">Complete your seller profile and start selling</p>
+                          <% } else { %>
+                            <p class="step-text">Start shopping or explore thousands of products from verified sellers
                             </p>
+                            <% } %>
+                      </div>
 
-                            <!-- OTP Section -->
-                            <div class="otp-section">
-                                <p class="otp-label">Your Verification Code</p>
-                                <div class="otp-code">
-                                    <%= otp %>
-                                </div>
-                                <p class="otp-validity">
-                                    This code expires in <strong>5 minutes</strong>
-                                </p>
-                            </div>
+                      <!-- Warning note — same for both -->
+                      <div class="warning-box">
+                        <p>
+                          <strong>Didn't create an account?</strong>
+                          Safely ignore this email — no action is needed on your end.
+                        </p>
+                      </div>
 
-                            <!-- Instructions -->
-                            <div class="instructions">
-                                <p class="instructions-title">
-                                    <span class="instructions-icon">!</span>
-                                    Important Instructions
-                                </p>
-                                <p class="instructions-text">
-                                    Enter this code on the verification page to complete your registration. Do not share
-                                    this code with anyone, including ClassyShop staff.
-                                </p>
-                            </div>
+            </div>
 
-                            <!-- Message -->
-                            <p class="message">
-                                Once verified, you'll have access to:
-                            </p>
-                            <table role="presentation" style="margin: 16px 0; width: 100%;">
-                                <tr>
-                                    <td style="padding: 8px 0; font-size: 14px; color: #4a5568;">
-                                        ✓ Exclusive deals and early access to sales
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 8px 0; font-size: 14px; color: #4a5568;">
-                                        ✓ Personalized product recommendations
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 8px 0; font-size: 14px; color: #4a5568;">
-                                        ✓ Fast and secure checkout experience
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="padding: 8px 0; font-size: 14px; color: #4a5568;">
-                                        ✓ Order tracking and history
-                                    </td>
-                                </tr>
-                            </table>
+            <!-- Footer -->
+            <div class="footer">
+              <div class="footer-links">
+                <a href="https://classyshop.com/shop" class="footer-link">Shop Now</a>
+                <a href="https://classyshop.com/help" class="footer-link">Help Center</a>
+                <a href="https://classyshop.com/contact" class="footer-link">Contact</a>
+              </div>
+              <div class="footer-info">
+                <a href="mailto:support@classyshop.com">support@classyshop.com</a>
+                &nbsp;·&nbsp; +880 1813 333 333 &nbsp;·&nbsp; Dhaka, Bangladesh
+              </div>
+              <p class="copyright">
+                © <%= new Date().getFullYear() %> ClassyShop. All rights reserved.
+                  &nbsp;·&nbsp; <a href="#" style="color:#CBD5E1">Unsubscribe</a>
+                  &nbsp;·&nbsp; <a href="#" style="color:#CBD5E1">Privacy Policy</a>
+              </p>
+            </div>
 
-                            <!-- Security Notice -->
-                            <div class="security-notice">
-                                <p class="security-notice-title">🔒 Security Notice</p>
-                                <p class="security-notice-text">
-                                    If you didn't create an account with ClassyShop, please ignore this email or contact
-                                    our support team immediately. Your account security is our top priority.
-                                </p>
-                            </div>
-
-                            <hr class="divider" />
-
-                            <!-- Closing -->
-                            <p class="message" style="margin: 0;">
-                                Happy shopping!<br />
-                                <strong>The ClassyShop Team</strong>
-                            </p>
-                        </td>
-                    </tr>
-
-                    <!-- Footer -->
-                    <tr>
-                        <td class="footer">
-                            <p class="footer-brand">CLASSYSHOP</p>
-
-                            <!-- Social Media Icons (optional) -->
-                            <div class="footer-social">
-                                <a href="#" class="social-icon">𝕏</a>
-                                <a href="#" class="social-icon">f</a>
-                                <a href="#" class="social-icon">in</a>
-                                <a href="#" class="social-icon">📷</a>
-                            </div>
-
-                            <!-- Footer Links -->
-                            <div class="footer-links">
-                                <a href="https://classyshop.com" class="footer-link">Visit Website</a>
-                                <span class="footer-separator">•</span>
-                                <a href="https://classyshop.com/help" class="footer-link">Help Center</a>
-                                <span class="footer-separator">•</span>
-                                <a href="mailto:support@classyshop.com" class="footer-link">Contact Support</a>
-                            </div>
-
-                            <!-- Contact Info -->
-                            <p class="footer-contact">
-                                📧 <a href="mailto:support@classyshop.com">support@classyshop.com</a><br />
-                                📞 +880 1813 333 333<br />
-                                📍 Chandpur, Bangladesh
-                            </p>
-
-                            <!-- Legal -->
-                            <p class="footer-legal">
-                                © <%= new Date().getFullYear() %> ClassyShop. All rights reserved.<br />
-                                    This email was sent to you as a registered user of ClassyShop.<br />
-                                    <a href="#" style="color: #667eea; text-decoration: none;">Unsubscribe</a> |
-                                    <a href="#" style="color: #667eea; text-decoration: none;">Privacy Policy</a> |
-                                    <a href="#" style="color: #667eea; text-decoration: none;">Terms of Service</a>
-                            </p>
-                        </td>
-                    </tr>
-
-                </table>
-            </td>
-        </tr>
-    </table>
+    </div>
+  </div>
 </body>
 
 </html>

@@ -3,4 +3,5 @@ export type TSendOtpPayload = {
   email: string;
   userName: string;
   otp: string;
+  userType: "CUSTOMER" | "SELLER";
 };
